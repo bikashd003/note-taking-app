@@ -1,0 +1,142 @@
+#create-container {
+  flex: 1 0 0;
+  height: 100vh;
+  padding: 10px 0 10px 20px;
+}
+
+header h1 {
+  font-family: "Roboto";
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 2vmax;
+}
+
+#create-area {
+  margin-top: 1em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.insert-note {
+  cursor: pointer;
+  margin-bottom: 2em;
+  font-family: "Roboto";
+  color: #fff;
+  background-color: #000;
+  padding: 0.2em 1em;
+  border-radius: 100px;
+  border: 0;
+  outline: none;
+  font-size: 1.2vmax;
+}
+.insert-note span {
+  margin-right: 10px;
+  font-weight: 900;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(47, 47, 47, 0.75);
+}
+
+#popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+#popup-content h1 {
+  font-family: "Roboto";
+  font-size: 2em;
+  margin: 0 0 1em;
+}
+
+.insert-group, .select-color {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5em;
+  gap: 1em;
+}
+
+.insert-group label,
+.select-color label {
+  font-family: "Roboto";
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.insert-group input {
+  width: 20em;
+  padding: 10px;
+  border: 2px solid #CCCCCC;
+  border-radius: 50px;
+}
+
+.group-color {
+  width: 1.5vmax;
+  height: 1.5vmax;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 0;
+}
+
+.selected-color {
+  border: 2px solid #000;
+}
+
+.create-btn {
+  display: block;
+  font-family: "Roboto";
+  font-size: 1em;
+  padding: 0.3em 1.5em;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  position: absolute;
+  right: 2em;
+  bottom: 1em;
+}
+
+.group {
+  padding: 1em;
+  border-radius: 30px 0 0 30px;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  font-family: "Roboto";
+}
+.group .group-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 1em;
+  border-radius: 50%;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.group .group-name {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+
+.group.active {
+  background-color: #F7ECDC;
+}/*# sourceMappingURL=CreateArea.css.map */

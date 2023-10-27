@@ -1,0 +1,48 @@
+#note-container {
+  flex: 3 0 0;
+  height: 100vh;
+  background-color: #F7ECDC;
+  position: relative;
+}
+
+#note-area {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto";
+  gap: 1em;
+}
+#note-area img {
+  width: 26vw;
+}
+#note-area h1 {
+  text-transform: capitalize;
+  font-size: 2vw;
+  font-weight: 500;
+}
+#note-area p {
+  font-size: 1.1em;
+  line-height: 1.3em;
+  width: 26vw;
+  color: #292929;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 1em;
+  text-align: center;
+  color: #292929;
+}
+footer img {
+  height: 15px;
+  width: 15px;
+  margin-right: 3px;
+}
+footer p {
+  font-size: 1em;
+  font-family: "Roboto";
+  font-weight: 500;
+}/*# sourceMappingURL=NoteArea.css.map */
