@@ -84,12 +84,16 @@ header h1 {
   border-radius: 50px;
 }
 
+.color-name {
+  display: flex;
+  gap: 0.5em;
+}
+
 .group-color {
+  cursor: pointer;
   width: 1.5vmax;
   height: 1.5vmax;
   border-radius: 100%;
-  overflow: hidden;
-  border: 0;
 }
 
 .selected-color {
@@ -112,6 +116,9 @@ header h1 {
 }
 
 .group-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: start;
   overflow-y: auto;
   height: 85vh;
 }

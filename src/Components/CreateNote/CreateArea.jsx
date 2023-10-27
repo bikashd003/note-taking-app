@@ -16,8 +16,7 @@ const CreateArea = () => {
     setActiveGroup(index); 
   };
 useEffect(() => {
-  const rand= Math.floor(Math.random());
-  console.log(rand);
+  const rand= Math.floor(Math.random()*10);
   setRandom(rand);
 }, [])
 
@@ -51,7 +50,7 @@ useEffect(() => {
                   >
                     {data.groupName.charAt(0) +
                       data.groupName.charAt(
-                        (random * data.groupName.length)
+                        (random )
                       )}
                   </h1>
                   <h2 className="group-name">{data.groupName}</h2>

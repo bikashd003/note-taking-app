@@ -55,13 +55,13 @@ const NotesInput = ({ groupIndex, random }) => {
         <h1
           className="group-icon"
           style={{
-            backgroundColor: savedNotes[groupIndex]?.groupColor,
+            backgroundColor: savedNotes[groupIndex]?.groupColor || "",
           }}
         >
           {savedNotes[groupIndex]?.groupName?.charAt(0) +
             savedNotes[groupIndex]?.groupName?.charAt(
-              random * savedNotes[groupIndex]?.groupName?.length
-            )}
+              random 
+            ) || "B"}
         </h1>
         <h1 className="group-name">{savedNotes[groupIndex]?.groupName|| "Bikash"}</h1>
       </div>

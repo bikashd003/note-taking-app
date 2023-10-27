@@ -40,7 +40,6 @@ const ShowPopUp = ({ closePopup }) => {
     localStorage.setItem('groups', JSON.stringify(savedGroups));
     closePopup();
   };
-
   useEffect(() => {
     const colorInputs = document.querySelectorAll('.group-color');
 
@@ -73,13 +72,12 @@ const ShowPopUp = ({ closePopup }) => {
           <label>Choose colour</label>
           <div className="color-name">
             {['#B38BFA', '#FF79F2', '#43E6FC', '#F19576', '#0047FF', '#6691FF'].map((color, index) => (
-              <input
-                type="color"
+              <div
                 className="group-color"
                 key={index}
                 value={color}
-                readOnly
                 onClick={() => handleColorClick(color)}
+                style={{ backgroundColor: color }}
               />
             ))}
           </div>
