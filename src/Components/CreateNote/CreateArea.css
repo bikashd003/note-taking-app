@@ -111,6 +111,24 @@ header h1 {
   bottom: 1em;
 }
 
+.group-container {
+  overflow-y: auto;
+  height: 85vh;
+}
+
+.group-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.group-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 136, 0, 0.3);
+}
+
+.group-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgb(156, 126, 126);
+}
+
 .group {
   padding: 1em;
   border-radius: 30px 0 0 30px;
@@ -139,4 +157,15 @@ header h1 {
 
 .group.active {
   background-color: #F7ECDC;
+}
+
+.container {
+  display: flex;
+}
+
+.input-container {
+  flex: 3 0 0;
+  height: 100vh;
+  background-color: #F7ECDC;
+  position: relative;
 }/*# sourceMappingURL=CreateArea.css.map */
