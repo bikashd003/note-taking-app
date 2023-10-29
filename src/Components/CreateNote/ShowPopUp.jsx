@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 const ShowPopUp = ({ closePopup }) => {
 
   const [formData, setFormData] = useState({
-    groupName: '',
-    groupColor: '', 
+    groupName: "",
+    groupColor: "",
   });
 
   const handleInputChange = (event) => {
@@ -15,47 +15,50 @@ const ShowPopUp = ({ closePopup }) => {
     });
   };
 
-  const handleColorClick = (color) => {
-    const colorInputs = document.querySelectorAll('.group-color');
+const handleColorClick = (color, indx) => {
+  const colorInputs = document.querySelectorAll(".group-color");
 
-    colorInputs.forEach(function (color) {
-      color.addEventListener('click', function () {
-        color.classList.toggle('selected-color');
-        
-      });
-    });
-    setFormData({
-      ...formData,
-      groupColor: color,
-    });
-  };
+  colorInputs.forEach((colour, idx) => {
+    if (idx === indx) {
+      colour.style.transform = "scale(1.1)";
+    } else {
+      colour.style.transform = "none";
+    }
+  });
+
+  setFormData({
+    ...formData,
+    groupColor: color,
+  });
+};
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const savedGroups = JSON.parse(localStorage.getItem('groups')) || [];
+    const savedGroups = JSON.parse(localStorage.getItem("groups")) || [];
     const newGroup = {
       groupName: formData.groupName,
       groupColor: formData.groupColor,
     };
     savedGroups.push(newGroup);
-    localStorage.setItem('groups', JSON.stringify(savedGroups));
+    localStorage.setItem("groups", JSON.stringify(savedGroups));
     closePopup();
   };
   useEffect(() => {
-    const colorInputs = document.querySelectorAll('.group-color');
-
+    const colorInputs = document.querySelectorAll(".group-color");
+    
     colorInputs.forEach(function (color) {
-      color.addEventListener('click', function (event) {
+      color.addEventListener("click", function (event) {
         event.preventDefault();
-        
       });
     });
     
+ 
+}, []);
 
-  }, []);
 
   return (
     <>
-      <div id="popup"></div>
+      <div id="popup" onClick={()=>closePopup()}></div>
       <form id="popup-content" onSubmit={handleSubmit}>
         <h1>Create New Notes group</h1>
         <div className="insert-group">
@@ -71,13 +74,22 @@ const ShowPopUp = ({ closePopup }) => {
         <div className="select-color">
           <label>Choose colour</label>
           <div className="color-name">
-            {['#B38BFA', '#FF79F2', '#43E6FC', '#F19576', '#0047FF', '#6691FF'].map((color, index) => (
+            {[
+              "#B38BFA",
+              "#FF79F2",
+              "#43E6FC",
+              "#F19576",
+              "#0047FF",
+              "#6691FF",
+            ].map((color, index) => (
               <div
                 className="group-color"
                 key={index}
                 value={color}
-                onClick={() => handleColorClick(color)}
-                style={{ backgroundColor: color }}
+                onClick={() => handleColorClick(color, index)}
+                style={{
+                  backgroundColor: color,
+                }}
               />
             ))}
           </div>
