@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { IoSendSharp } from "react-icons/io5";
+import { GoArrowLeft } from 'react-icons/go';
 
-const NotesInput = ({ groupIndex, random }) => {
+const NotesInput = ({ groupIndex, random ,onBackButtonClick}) => {
   const [savedNotes, setSavedNotes] = useState([]);
   const [note, setNote] = useState("");
 
@@ -44,6 +45,7 @@ const NotesInput = ({ groupIndex, random }) => {
       }
     }
   };
+
   useEffect(() => {
     const prevData = JSON.parse(localStorage.getItem("groups")) || [];
     setSavedNotes(prevData);
@@ -52,6 +54,7 @@ const NotesInput = ({ groupIndex, random }) => {
   return (
     <div className="notes-input">
       <div className="group-heading">
+        <GoArrowLeft className="back-btn" onClick={onBackButtonClick}/>
         <h1
           className="group-icon"
           style={{

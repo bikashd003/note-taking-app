@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./CreateArea.css";
 import Heading from "./Heading";
 import ShowPopUp from "./ShowPopUp";
@@ -8,18 +8,45 @@ import NoteArea from "../DisplayNote/NoteArea";
 const CreateArea = () => {
   const [popup, setPopup] = useState(false);
   const [random, setRandom] = useState(null);
-  const [activeGroup, setActiveGroup] = useState(null); 
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeGroup, setActiveGroup] = useState(null);
   const ClosePopup = () => setPopup(false);
   const prevData = JSON.parse(localStorage.getItem("groups")) || [];
 
   const handleGroupClick = (index) => {
-    setActiveGroup(index); 
+    setActiveGroup(index);
+    if (isMobile) {
+      document.querySelector("#create-container").classList.add("mobile-view");
+      document
+        .querySelector(".input-container")
+        .classList.remove("mobile-view");
+    }
   };
-useEffect(() => {
-  const rand= Math.floor(Math.random()*10);
-  setRandom(rand);
-}, [])
 
+  const handleBackButton = () => {
+    if (isMobile) {
+      document.querySelector(".input-container").classList.add("mobile-view");
+      document
+        .querySelector("#create-container")
+        .classList.remove("mobile-view");
+    }
+    setActiveGroup(null);
+  };
+
+  useEffect(() => {
+    const rand = Math.floor(Math.random() * 10);
+    setRandom(rand);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+  
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       <div className="container">
@@ -37,21 +64,16 @@ useEffect(() => {
                 <div
                   className="group"
                   key={data.groupName}
-                  onClick={() => handleGroupClick(index)} 
+                  onClick={() => handleGroupClick(index)}
                   style={
-                    activeGroup === index
-                      ? { backgroundColor: "#F7ECDC" }
-                      : {} 
+                    activeGroup === index ? { backgroundColor: "#F7ECDC" } : {}
                   }
                 >
                   <h1
                     className="group-icon"
                     style={{ backgroundColor: data.groupColor }}
                   >
-                    {data.groupName.charAt(0) +
-                      data.groupName.charAt(
-                        (random )
-                      )}
+                    {data.groupName.charAt(0) + data.groupName.charAt(random)}
                   </h1>
                   <h2 className="group-name">{data.groupName}</h2>
                 </div>
@@ -59,8 +81,18 @@ useEffect(() => {
             })}
           </div>
         </div>
-        <div className="input-container">
-          {activeGroup !== null ? <NotesInput groupIndex={activeGroup}  random={random}/> : <NoteArea />}
+        <div className={`input-container ${isMobile ? 'mobile-view' : ''}`}>
+          {activeGroup !== null ? (
+            <NotesInput
+              groupIndex={activeGroup}
+              random={random}
+              onBackButtonClick={handleBackButton}
+            />
+          ) : !isMobile ? (
+            <NoteArea />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </>

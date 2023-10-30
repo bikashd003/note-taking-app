@@ -1,7 +1,7 @@
 #create-container {
     flex: 1 0 0;
     height: 100vh;
-    padding: 10px 0 10px 20px;
+    padding-top: 10px;
 }
 
 header {
@@ -10,6 +10,11 @@ header {
         text-transform: capitalize;
         font-weight: 600;
         font-size: 2vmax;
+        margin-left: 0.8em;
+        @media (max-width: 768px) {
+            margin-left: 1em;
+            font-size: 2.2vmax;
+        }
     }
 }
 
@@ -23,7 +28,7 @@ header {
 
 .insert-note {
     cursor: pointer;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     font-family: "Roboto";
     color: #fff;
     background-color: #000;
@@ -32,6 +37,16 @@ header {
     border: 0;
     outline: none;
     font-size: 1.2vmax;
+    width: 80%;
+
+    @media (max-width: 768px) {
+        font-size: 1.2em;
+        width: 90%;
+        padding: 0.3em 1em;
+        margin: 0 auto 1em auto;
+
+
+    }
 
     span {
         margin-right: 10px;
@@ -52,6 +67,8 @@ header {
 
 #popup-content {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -59,47 +76,88 @@ header {
     padding: 2em;
     border-radius: 5px;
     z-index: 2;
+
+    @media (max-width: 768px) {
+        padding: 1em;
+        top: 40%;
+        left: 40%;
+        transform: translate(-40%, -40%);
+    }
+
 }
 
 #popup-content h1 {
     font-family: 'Roboto';
     font-size: 2em;
     margin: 0 0 1em;
+
+    @media (max-width: 768px) {
+        font-size: 1.2em;
+    }
 }
 
-.insert-group,.select-color{
+.insert-group,
+.select-color {
     display: flex;
     align-items: center;
     margin-bottom: 1.5em;
     gap: 1em;
-}
-.insert-group label,
-.select-color label {
-   font-family: 'Roboto';
-  font-size: 1.5em;
-  font-weight: 600;
+
+    @media (max-width: 768px) {
+        margin-bottom: 1em;
+    }
 }
 
-.insert-group input{
+.insert-group label,
+.select-color label {
+    font-family: 'Roboto';
+    font-size: 1.5em;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+        font-size: 1em;
+        width: 27vw;
+    }
+}
+
+.insert-group input {
     width: 20em;
     padding: 10px;
     border: 2px solid #CCCCCC;
     border-radius: 50px;
+
+    @media (max-width: 768px) {
+        width: 15em;
+        padding: 6px;
+
+    }
 }
-.color-name{
+
+.insert-group input::placeholder {
+    @media (max-width: 768px) {
+        font-size: 0.8em;
+    }
+}
+
+.color-name {
     display: flex;
     gap: 0.5em;
 }
+
 .group-color {
     cursor: pointer;
     width: 1.5vmax;
     height: 1.5vmax;
     border-radius: 100%;
-    
-  }
-  
 
-  
+    @media (max-width: 768px) {
+        width: 2.5vmax;
+        height: 2.5vmax;
+    }
+}
+
+
+
 .create-btn {
     display: block;
     font-family: 'Roboto';
@@ -110,30 +168,39 @@ header {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    position: absolute;
-    right: 2em;
-    bottom: 1em;
+    align-self: flex-end;
+
+    @media (max-width: 768px) {
+        font-size: 1em;
+        padding: 0.2em 1em;
+        align-self: auto;
+        margin: 0 2em;
+    }
 }
-.group-container{
+
+.group-container {
     display: flex;
     flex-direction: column-reverse;
     justify-content: start;
     overflow-y: auto;
     height: 85vh;
+    padding: 0 0 0 1.5em;
 }
+
 .group-container::-webkit-scrollbar {
     width: 12px;
 }
-                    
+
 .group-container::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(255, 136, 0, 0.3); 
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 136, 0, 0.3);
 }
-                    
+
 .group-container::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgb(156, 126, 126); 
+    -webkit-box-shadow: inset 0 0 6px rgb(156, 126, 126);
 }
-.group{
+
+.group {
     cursor: pointer;
     padding: 1em;
     border-radius: 30px 0 0 30px;
@@ -141,7 +208,13 @@ header {
     gap: 1em;
     align-items: center;
     font-family: 'Roboto';
-    .group-icon{
+
+    @media (max-width: 768px) {
+        padding: 0.5em;
+
+    }
+
+    .group-icon {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -149,23 +222,37 @@ header {
         height: 1.5em;
         padding: 1em;
         border-radius: 50%;
-        text-transform:uppercase;
+        text-transform: uppercase;
         color: #fff;
         font-size: 1.5em;
         font-weight: 400;
+
+        @media (max-width: 768px) {
+            font-size: 1em;
+            padding: 1.2em;
+        }
     }
-    .group-name{
+
+    .group-name {
         font-size: 1.2em;
         font-weight: 500;
+
+        @media (max-width: 768px) {
+            font-size: 1em;
+
+        }
     }
 }
-.group.active{
+
+.group.active {
     background-color: #F7ECDC;
 }
-.container{
+
+.container {
     display: flex;
 }
-.input-container{
+
+.input-container {
     flex: 3 0 0;
     height: 100vh;
     background-color: #F7ECDC;

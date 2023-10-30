@@ -48,6 +48,7 @@ footer p {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 .notes-input .group-heading {
   padding: 0.8em;
@@ -70,17 +71,27 @@ footer p {
   font-size: 1.5em;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  .notes-input .group-icon {
+    font-size: 1em;
+    padding: 1.2em;
+  }
+}
 .notes-input .group-name {
   font-size: 1.2em;
   font-weight: 500;
 }
+@media (max-width: 768px) {
+  .notes-input .group-name {
+    font-size: 1em;
+  }
+}
 
 .input-note {
   width: 100%;
-  bottom: 0;
-  position: absolute;
   background-color: #E8E8E8;
   padding: 1em;
+  position: relative;
 }
 .input-note textarea {
   border-radius: 10px;
@@ -92,6 +103,12 @@ footer p {
   resize: none;
   width: 100%;
   height: 20vh;
+}
+@media (max-width: 768px) {
+  .input-note textarea {
+    height: 15vh;
+    margin-bottom: 3em;
+  }
 }
 
 textarea::-webkit-scrollbar {
@@ -131,8 +148,14 @@ textarea::-webkit-scrollbar-thumb {
   position: absolute;
   font-size: 2vmax;
   color: #ABABAB;
-  right: 1.5em;
-  bottom: 1.5em;
+  right: 1em;
+  bottom: 1em;
+}
+@media (max-width: 768px) {
+  .save-note {
+    right: 2em;
+    bottom: 5em;
+  }
 }
 
 .notes-content {
@@ -147,5 +170,21 @@ textarea::-webkit-scrollbar-thumb {
 @media (max-width: 1400px) {
   .time-data {
     width: 10vw;
+  }
+}
+@media (max-width: 768px) {
+  .time-data {
+    width: 50vw;
+  }
+}
+
+.back-btn {
+  display: none;
+}
+@media (max-width: 768px) {
+  .back-btn {
+    cursor: pointer;
+    display: block;
+    font-size: 8vw;
   }
 }/*# sourceMappingURL=NoteArea.css.map */
