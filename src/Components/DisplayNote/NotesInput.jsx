@@ -53,7 +53,7 @@ const NotesInput = ({ groupIndex, random ,onBackButtonClick}) => {
   useEffect(() => {
     const prevData = JSON.parse(localStorage.getItem("groups")) || [];
     setSavedNotes(prevData);
-  }, []);
+  }, [groupIndex]);
 
   return (
     <div className="notes-input">
