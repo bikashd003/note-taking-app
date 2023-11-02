@@ -27,7 +27,7 @@ const NotesInput = ({ groupIndex, random ,onBackButtonClick}) => {
 
   const handleSaveNote = (e) => {
     e.preventDefault();
-
+   
     if (note.length > 0) {
       const newNote = {
         time_data: formatCurrentDateTime(),
@@ -45,7 +45,11 @@ const NotesInput = ({ groupIndex, random ,onBackButtonClick}) => {
       }
     }
   };
-
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      handleSaveNote(e);
+    }
+  };
   useEffect(() => {
     const prevData = JSON.parse(localStorage.getItem("groups")) || [];
     setSavedNotes(prevData);
@@ -82,6 +86,7 @@ const NotesInput = ({ groupIndex, random ,onBackButtonClick}) => {
           value={note}
           onChange={(e) => setNote(e.target.value)}
           placeholder="Write your note here..."
+          onKeyDown={handleKeyDown}
         />
 
         <IoSendSharp className="save-note" onClick={(e) => handleSaveNote(e)} />
