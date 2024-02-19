@@ -6,7 +6,7 @@ Welcome to the Notes Saver App! This simple and user-friendly application is des
 
 ## Screenshots
 
-![App Screenshot](https://media.licdn.com/dms/image/D5622AQHL38sg7AcCog/feedshare-shrink_800/0/1698936345433?e=1701907200&v=beta&t=TDkRZZInGtU9eC_kV-4zeJE93bbe2qcpp1NYocPuBRo)
+![App Screenshot](https://media.licdn.com/dms/image/D5622AQHL38sg7AcCog/feedshare-shrink_2048_1536/0/1698936345435?e=1710979200&v=beta&t=zG0oBytsJQ-A4RM5wy-s5pJiYrdMrAKGCRzEZzJ_6D8)
 
 
 ## Getting Started
